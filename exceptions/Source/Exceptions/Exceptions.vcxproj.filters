@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="basic\mem\amd64\mem.cpp">
+      <Filter>basic\mem\amd64</Filter>
+    </ClCompile>
+    <ClCompile Include="exc\amd64\excchandler.cpp">
+      <Filter>exc\amd64</Filter>
+    </ClCompile>
+    <ClCompile Include="pe\amd64\peunwind.cpp">
+      <Filter>pe\amd64</Filter>
+    </ClCompile>
+    <ClCompile Include="pe\pestrucs.cpp">
+      <Filter>pe</Filter>
+    </ClCompile>
+    <ClCompile Include="exc\amd64\exccpu.cpp">
+      <Filter>exc\amd64</Filter>
+    </ClCompile>
+    <ClCompile Include="exc\amd64\excdsptch.cpp">
+      <Filter>exc\amd64</Filter>
+    </ClCompile>
+    <ClCompile Include="pe\pe.cpp">
+      <Filter>pe</Filter>
+    </ClCompile>
+    <ClCompile Include="efi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="basic">
+      <UniqueIdentifier>{f432b13d-f22b-4c4b-8c92-3d8df4b9ee32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\mem">
+      <UniqueIdentifier>{ed3c5541-9e28-4d9c-b03b-a77d434e1446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\mem\amd64">
+      <UniqueIdentifier>{909ae81a-8dc0-4c80-8571-7c42b047c2e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\dbg">
+      <UniqueIdentifier>{bda28f71-7e5d-4139-9830-f2bc4386a691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\types">
+      <UniqueIdentifier>{7fa72904-0d8c-40b1-9303-a772dde8dd0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\types\amd64">
+      <UniqueIdentifier>{220005b6-9195-4f02-9fac-643995fef6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\cpu">
+      <UniqueIdentifier>{6e2dcaca-2d16-439b-bc9e-f50461299d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\cpu\amd64">
+      <UniqueIdentifier>{256af1f5-3f39-4ed7-9cb1-8fe4efd270a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pe">
+      <UniqueIdentifier>{c3cf4aa6-5336-4e49-bdea-5b9458b369af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pe\amd64">
+      <UniqueIdentifier>{139d6e24-0114-44ae-868d-7ea49d0681f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="exc">
+      <UniqueIdentifier>{52cee1ea-5951-419a-b9ac-6a3037020f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="exc\amd64">
+      <UniqueIdentifier>{686baa30-4d24-4282-9590-1ee30ce0bba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic\status">
+      <UniqueIdentifier>{473d2dcf-92f5-4b1a-9b6d-01388072aa78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basic\basic.h">
+      <Filter>basic</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\mem\mem.h">
+      <Filter>basic\mem</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\dbg\asserts.h">
+      <Filter>basic\dbg</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\types\amd64\types.h">
+      <Filter>basic\types\amd64</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\types\types.h">
+      <Filter>basic\types</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\cpu\cpu.h">
+      <Filter>basic\cpu</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\cpu\amd64\cpuctrl.h">
+      <Filter>basic\cpu\amd64</Filter>
+    </ClInclude>
+    <ClInclude Include="exc\amd64\excchandler.h">
+      <Filter>exc\amd64</Filter>
+    </ClInclude>
+    <ClInclude Include="pe\amd64\peunwind.h">
+      <Filter>pe\amd64</Filter>
+    </ClInclude>
+    <ClInclude Include="pe\pe.h">
+      <Filter>pe</Filter>
+    </ClInclude>
+    <ClInclude Include="pe\pestrucs.h">
+      <Filter>pe</Filter>
+    </ClInclude>
+    <ClInclude Include="exc\amd64\exccpu.h">
+      <Filter>exc\amd64</Filter>
+    </ClInclude>
+    <ClInclude Include="exc\amd64\excdsptch.h">
+      <Filter>exc\amd64</Filter>
+    </ClInclude>
+    <ClInclude Include="exc\exc.h">
+      <Filter>exc</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\cpu\amd64\cpucontext.h">
+      <Filter>basic\cpu\amd64</Filter>
+    </ClInclude>
+    <ClInclude Include="efi.h" />
+    <ClInclude Include="basic\status\status.h">
+      <Filter>basic\status</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="basic\basic.inc">
+      <Filter>basic</Filter>
+    </None>
+    <None Include="basic\cpu\amd64\cpuctrl.inc">
+      <Filter>basic\cpu\amd64</Filter>
+    </None>
+    <None Include="basic\cpu\cpu.inc">
+      <Filter>basic\cpu</Filter>
+    </None>
+    <None Include="exc\amd64\excdsptch.inc">
+      <Filter>exc\amd64</Filter>
+    </None>
+    <None Include="basic\cpu\amd64\cpucontext.inc">
+      <Filter>basic\cpu\amd64</Filter>
+    </None>
+    <None Include="basic\status\status.inc">
+      <Filter>basic\status</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="exc\amd64\exccpu.asm">
+      <Filter>exc\amd64</Filter>
+    </MASM>
+    <MASM Include="exc\amd64\excdsptch.asm">
+      <Filter>exc\amd64</Filter>
+    </MASM>
+  </ItemGroup>
+</Project>

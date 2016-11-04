@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="basic\mem\amd64\mem.cpp" />
+    <ClCompile Include="exc\amd64\excchandler.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="exc\amd64\excdsptch.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="exc\amd64\exccpu.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="pe\amd64\peunwind.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)amd64\%(FileName)_C.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="pe\pe.cpp" />
+    <ClCompile Include="pe\pestrucs.cpp" />
+    <MASM Include="exc\amd64\excdsptch.asm">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)amd64\%(FileName)_asm.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)amd64\%(FileName)_asm.obj</ObjectFileName>
+      <IncludePaths Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\basic\;.\exc\</IncludePaths>
+      <IncludePaths Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\basic\;.\exc\</IncludePaths>
+    </MASM>
+    <MASM Include="exc\amd64\exccpu.asm">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)amd64\%(FileName)_asm.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)amd64\%(FileName)_asm.obj</ObjectFileName>
+      <IncludePaths Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\basic\;.\exc\</IncludePaths>
+      <IncludePaths Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\basic\;.\exc\</IncludePaths>
+    </MASM>
+    <ClCompile Include="efi.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</CompileAs>
+    </ClCompile>
+    <None Include="basic\basic.inc" />
+    <None Include="basic\cpu\amd64\cpucontext.inc" />
+    <None Include="basic\cpu\amd64\cpuctrl.inc" />
+    <None Include="basic\cpu\cpu.inc" />
+    <None Include="basic\status\status.inc" />
+    <None Include="exc\amd64\excdsptch.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basic\basic.h" />
+    <ClInclude Include="basic\cpu\amd64\cpucontext.h" />
+    <ClInclude Include="basic\cpu\amd64\cpuctrl.h" />
+    <ClInclude Include="basic\cpu\cpu.h" />
+    <ClInclude Include="basic\dbg\asserts.h" />
+    <ClInclude Include="basic\mem\mem.h" />
+    <ClInclude Include="basic\status\status.h" />
+    <ClInclude Include="basic\types\amd64\types.h" />
+    <ClInclude Include="basic\types\types.h" />
+    <ClInclude Include="efi.h" />
+    <ClInclude Include="exc\amd64\excdsptch.h" />
+    <ClInclude Include="exc\amd64\excchandler.h" />
+    <ClInclude Include="exc\amd64\exccpu.h" />
+    <ClInclude Include="exc\exc.h" />
+    <ClInclude Include="pe\amd64\peunwind.h" />
+    <ClInclude Include="pe\pe.h" />
+    <ClInclude Include="pe\pestrucs.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{648116F0-5BC1-4C7D-8478-CADEE84F581B}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>Exceptions</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>
+    </NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>
+    </NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>
+    </NMakeCleanCommandLine>
+    <OutDir>..\..\Bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <TargetExt>.efi</TargetExt>
+    <GenerateManifest>false</GenerateManifest>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>
+    </NMakeBuildCommandLine>
+    <TargetExt>.efi</TargetExt>
+    <OutDir>..\..\Bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;_DEBUG;HAVE_USE_MS_ABI;GNU_EFI_USE_EXTERNAL_STDARG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalIncludeDirectories>..\GnuEfi\inc;..\GnuEfi\inc\x86_64</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091</DisableSpecificWarnings>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SubSystem>EFI Application</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EntryPointSymbol>EfiMain</EntryPointSymbol>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST $(IntDir) GOTO SKIP_1
+md $(IntDir)
+:SKIP_1
+IF EXIST $(IntDir)amd64 GOTO SKIP_2
+md $(IntDir)amd64
+:SKIP_2</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;HAVE_USE_MS_ABI;GNU_EFI_USE_EXTERNAL_STDARG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalIncludeDirectories>..\GnuEfi\inc;..\GnuEfi\inc\x86_64</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091</DisableSpecificWarnings>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <WarningLevel>Level4</WarningLevel>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SubSystem>EFI Application</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EntryPointSymbol>EfiMain</EntryPointSymbol>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST $(IntDir) GOTO SKIP_1
+md $(IntDir)
+:SKIP_1
+IF EXIST $(IntDir)amd64 GOTO SKIP_2
+md $(IntDir)amd64
+:SKIP_2</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
